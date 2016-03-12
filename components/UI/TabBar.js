@@ -32,8 +32,12 @@ class TabBar extends Component {
             source={iconList[page]}
             style={isTabActive ? styles.tabSelectedIcon : styles.tabIcon}
             />
-          <Text style={{color: isTabActive ? activeTextColor : inactiveTextColor,
-            fontWeight: isTabActive ? 'bold' : 'normal'}}>{name}</Text>
+          <Text 
+            style={{color: isTabActive ? activeTextColor : inactiveTextColor,
+              fontWeight: isTabActive ? 'bold' : 'normal',
+              fontSize: 11}}>
+              {name}
+          </Text>
         </View>
       </TouchableOpacity>
     );
@@ -102,16 +106,16 @@ var styles = StyleSheet.create({
     borderTopColor: 'rgba(204,204,204,0.8)',
   },
   tabIcon: {
-    height: 24,
-    width: 24,
+    height: 28,
+    width: 28,
     alignSelf: 'center',
     marginBottom: 2,
     tintColor: 'white',
   },
   tabSelectedIcon: {
     tintColor: '#fff819',
-    height: 24,
-    width: 24,
+    height: 28,
+    width: 28,
     alignSelf: 'center',
     marginBottom: 2
   },

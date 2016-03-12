@@ -16,14 +16,17 @@ var {
   LayoutAnimation,
 } = React;
 
-var ScrollableTabView = require('react-native-scrollable-tab-view');
-var TabBar = require('../UI/TabBar');
+const ScrollableTabView = require('react-native-scrollable-tab-view');
+const TabBar = require('../UI/TabBar');
+
+// Screens
+const ScreenFeedPage = require('./ScreenFeedPage')
 
 class ScreenTabBarController extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      defaultTab: 1,
+      defaultTab: 0,
     };
   } 
   
@@ -39,7 +42,7 @@ class ScreenTabBarController extends Component {
         tabBarInactiveTextColor='white'
         tabBarUnderlineColor='rgba(0, 0, 0, 0)'
         >
-        <View navigator={this.props.navigator} tabLabel="Feed"/>
+        <ScreenFeedPage navigator={this.props.navigator} tabLabel="Feed"/>
         <View navigator={this.props.navigator} tabLabel="Post" />
         <View navigator={this.props.navigator} tabLabel="Search" />
         <View navigator={this.props.navigator} tabLabel="Options" />
