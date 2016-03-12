@@ -39,11 +39,10 @@ class ScreenTabBarController extends Component {
         tabBarInactiveTextColor='white'
         tabBarUnderlineColor='rgba(0, 0, 0, 0)'
         >
-        <View navigator={this.props.navigator} tabLabel="Featured"/>
-        <View navigator={this.props.navigator} tabLabel="Popular" />
+        <View navigator={this.props.navigator} tabLabel="Feed"/>
         <View navigator={this.props.navigator} tabLabel="Post" />
-        <View navigator={this.props.navigator} tabLabel="Latest" />
-        <View navigator={this.props.navigator} tabLabel="Favourites" />
+        <View navigator={this.props.navigator} tabLabel="Search" />
+        <View navigator={this.props.navigator} tabLabel="Options" />
       </ScrollableTabView>
     );  
   }

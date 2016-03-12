@@ -14,11 +14,10 @@ var {
 
 // Hard 1-to-1 matching of names to assets in order
 const iconList = [
-  require('../../assets/featured.png'),
-  require('../../assets/popular.png'),
-  require('../../assets/post.png'),
-  require('../../assets/latest.png'),
-  require('../../assets/favourites.png')
+  require('../../assets/tab_feed.png'),
+  require('../../assets/tab_post.png'),
+  require('../../assets/tab_search.png'),
+  require('../../assets/tab_account.png')
 ]
 
 class TabBar extends Component {
