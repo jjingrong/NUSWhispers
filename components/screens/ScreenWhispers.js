@@ -47,22 +47,46 @@ class ScreenWhispers extends Component {
   
   render() {  
     // Loading Confessions
-    if (!this.state.loaded) {
+    if (this.props.whispersType == 3) {
+      // favourites require logged in user
+      return (
+        <Text> Please log in first </Text>
+      )
+    } else if (!this.state.loaded) {
       return (
         <Loading/>
       )
     } else {
       return (
-        <View>
-          <Text>{_api_mapping[this.props.whispersType] + '?timestamp=' + this.state.timestamp + '&count=10&offset=' + this.state.offset}</Text>
-        </View>
+        <ListView
+          style={{flex:1}}
+          dataSource={this.state.dataSource}
+          renderRow={this.renderConfession.bind(this)}
+        />
       )
     }
   }
   
+  // Render method for each confession
+  renderConfession(confession) {
+    return (
+      <View>
+        <Text>
+          {confession.confession_id}
+        </Text>
+      </View>
+    )
+  }
+  
   // API call
   loadData() {
-    // Update time stamp
+    /**
+      * Temporary work around till we login live
+    */
+    if (this.props.whispersType == 3) return
+    
+    
+    // Update time stamp & offset
     this.setState({
       timestamp : Date.now()
     })
@@ -73,12 +97,22 @@ class ScreenWhispers extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(responseData),
+          dataSource: this.state.dataSource.cloneWithRows(this.toObject(responseData.data.confessions)),
           loaded: true,
           offset: currentOffset + 10
         });
       })
       .done();
+  }
+  
+  // Helper functions
+  
+  // Change javascript array into object
+  toObject(arr) {
+    var rv = {};
+    for (var i = 0; i < arr.length; ++i)
+      rv[i] = arr[i];
+    return rv;
   }
 }
 
