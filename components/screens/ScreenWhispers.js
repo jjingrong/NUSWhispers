@@ -46,10 +46,10 @@ class ScreenWhispers extends Component {
   }
   
   render() {  
-    // Loading questions
+    // Loading Confessions
     if (!this.state.loaded) {
       return (
-        <Loading>Questions . .</Loading>
+        <Loading/>
       )
     } else {
       return (

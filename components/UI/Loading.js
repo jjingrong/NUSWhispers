@@ -5,6 +5,7 @@ var {
   View,
   Text,
   Component,
+  Image,
 } = React
 
 class Loading extends Component {
@@ -18,8 +19,9 @@ class Loading extends Component {
           margin: 50,
           height: 70,
           }}>
-          <Text style={{fontWeight: '300', fontSize:this.props.fontSize, color:this.props.color}}>Loading {this.props.children}</Text>
-          <ActivityIndicatorIOS 
+          <Text style={{fontWeight: '300', fontSize:this.props.fontSize, color:this.props.color}}>{this.props.children}</Text>
+          <Image 
+            source={require('../../assets/pac_man_loading.gif')}
             style={{alignSelf: 'center'}} 
             size={this.props.size}
             />
