@@ -17,6 +17,9 @@ var {
   LayoutAnimation,
 } = React;
 
+// Helper Components
+const GlobalMethods = require('../global/helperMethods')
+
 // UI Components
 const Loading = require('../UI/Loading')
 
@@ -28,7 +31,7 @@ const _api_mapping = [
   'http://www.nuswhispers.com/api/confessions/favourites/'
 ]
 
-class ScreenWhispers extends Component {
+class ScreenWhispersList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -97,23 +100,13 @@ class ScreenWhispers extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(this.toObject(responseData.data.confessions)),
+          dataSource: this.state.dataSource.cloneWithRows(GlobalMethods.arrToObject(responseData.data.confessions)),
           loaded: true,
           offset: currentOffset + 10
         });
       })
       .done();
   }
-  
-  // Helper functions
-  
-  // Change javascript array into object
-  toObject(arr) {
-    var rv = {};
-    for (var i = 0; i < arr.length; ++i)
-      rv[i] = arr[i];
-    return rv;
-  }
 }
 
-module.exports = ScreenWhispers;
+module.exports = ScreenWhispersList;

@@ -19,7 +19,7 @@ var {
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 
 // Screens
-const ScreenWhispers = require('./ScreenWhispers')
+const ScreenWhispersList = require('./ScreenWhispersList')
 
 class ScreenFeedPage extends Component {
   constructor(props) {
@@ -39,10 +39,10 @@ class ScreenFeedPage extends Component {
         tabBarInactiveTextColor='#bbbbbb'
         tabBarUnderlineColor='#2e8fc2'
         >
-        <ScreenWhispers navigator={this.props.navigator} whispersType={0} tabLabel="Featured"/>
-        <ScreenWhispers navigator={this.props.navigator} whispersType={1} tabLabel="Popular" />
-        <ScreenWhispers navigator={this.props.navigator} whispersType={2} tabLabel="Latest" />
-        <ScreenWhispers navigator={this.props.navigator} whispersType={3} tabLabel="Favourites" />
+        <ScreenWhispersList navigator={this.props.navigator} whispersType={0} tabLabel="Featured"/>
+        <ScreenWhispersList navigator={this.props.navigator} whispersType={1} tabLabel="Popular" />
+        <ScreenWhispersList navigator={this.props.navigator} whispersType={2} tabLabel="Latest" />
+        <ScreenWhispersList navigator={this.props.navigator} whispersType={3} tabLabel="Favourites" />
       </ScrollableTabView>
     );  
   }
