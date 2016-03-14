@@ -58,10 +58,10 @@ class WhispersListCell extends Component {
     return (
       <View style={styles.statsViewContainer}>
         <Text>
-          {this.props.confession.fb_like_count}
+          {this.props.confession.fb_like_count} FB Likes
         </Text>
         <Text>
-          {this.props.confession.fb_comment_count}
+          {this.props.confession.fb_comment_count} FB Comments
         </Text>
       </View>
     )
