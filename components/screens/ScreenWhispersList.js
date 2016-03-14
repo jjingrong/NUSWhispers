@@ -10,7 +10,6 @@ var {
   Component,
   Image,
   ListView,
-  TextInput,
   ScrollView,
   Dimensions,
   DeviceEventEmitter,
@@ -22,6 +21,7 @@ const GlobalMethods = require('../global/helperMethods')
 
 // UI Components
 const Loading = require('../UI/Loading')
+const WhispersListCell = require('../UI/WhisperListCell')
 
 // Mapping of whispersType to API end point
 const _api_mapping = [
@@ -62,7 +62,7 @@ class ScreenWhispersList extends Component {
     } else {
       return (
         <ListView
-          style={{flex:1}}
+          style={{flex:1, paddingTop:10}}
           dataSource={this.state.dataSource}
           renderRow={this.renderConfession.bind(this)}
         />
@@ -73,11 +73,7 @@ class ScreenWhispersList extends Component {
   // Render method for each confession
   renderConfession(confession) {
     return (
-      <View>
-        <Text>
-          {confession.confession_id}
-        </Text>
-      </View>
+      <WhispersListCell confession={confession}/>
     )
   }
   

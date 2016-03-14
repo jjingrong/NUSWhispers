@@ -4,15 +4,9 @@ var React = require('react-native');
 var {
   Platform,
   StyleSheet,
-  Text,
   View,
-  TouchableHighlight,
   Component,
-  Image,
-  TextInput,
-  ScrollView,
   Dimensions,
-  DeviceEventEmitter,
   LayoutAnimation,
 } = React;
 
